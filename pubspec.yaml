@@ -116,7 +116,7 @@ flutter:
           weight: 500
         - asset: assets/fonts/Tajawal-ExtraLight.ttf
           weight: 600
-        - asset: assets/fonts/Tajawal-Blod.ttf
+        - asset: assets/fonts/Tajawal-Bold.ttf
           weight: 700
         - asset: assets/fonts/Tajawal-ExtraBold.ttf
           weight: 800
