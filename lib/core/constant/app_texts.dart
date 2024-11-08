@@ -11,17 +11,20 @@ class Font {
       color: color,
       fontWeight: style.value,
       fontSize: size,
-      fontFamily: 'Effra',
+      fontFamily: 'Tajawal',
       decoration: decoration,
     );
   }
 }
 
-enum FontStyle { regular, medium, semiBold, bold, extraBold, black }
+enum FontStyle { light, regular, medium, semiBold, bold, extraBold, black }
 
 extension FontStyles on FontStyle {
   FontWeight get value {
     switch (this) {
+      case FontStyle.light:
+        return FontWeight.w300;
+
       case FontStyle.regular:
         return FontWeight.normal;
 

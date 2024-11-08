@@ -106,11 +106,19 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: Effra
+    - family: Tajawal
       fonts:
-        - asset: assets/fonts/Effra_Trial_Md.ttf
+        - asset: assets/fonts/Tajawal-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Tajawal-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Tajawal-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Effra_Trial_SBd.ttf
+        - asset: assets/fonts/Tajawal-ExtraLight.ttf
           weight: 600
-        - asset: assets/fonts/Effra_Trial_Bd.ttf
+        - asset: assets/fonts/Tajawal-Blod.ttf
           weight: 700
+        - asset: assets/fonts/Tajawal-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Tajawal-Black.ttf
+          weight: 900

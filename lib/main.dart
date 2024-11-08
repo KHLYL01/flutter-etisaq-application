@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'routes.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'bindings/initial_bindings.dart';
 import 'core/services/services.dart';
+import 'routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
