@@ -47,6 +47,14 @@ extension FontStyles on FontStyle {
 }
 
 class AppTextStyles {
+  static regular14({Color? color}) {
+    return Font.apply(style: FontStyle.regular, size: 14, color: color);
+  }
+
+  static medium12({Color? color}) {
+    return Font.apply(style: FontStyle.medium, size: 12, color: color);
+  }
+
   static medium16({Color? color}) {
     return Font.apply(style: FontStyle.medium, size: 16, color: color);
   }

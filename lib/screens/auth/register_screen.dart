@@ -1,106 +1,126 @@
+import 'package:etisaq/core/constant/app_texts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../controller/auth/register_controller.dart';
-import '../../../core/constant/app_colors.dart';
-import '../../../core/constant/app_routes.dart';
-import '../../../core/constant/app_texts.dart';
-import '../../widgets/custom_elevated_button.dart';
-import '../../widgets/custom_text_button.dart';
-import '../../widgets/custom_text_field.dart';
-import '../../widgets/custom_drop_down_list.dart';
+import '../../../controller/auth/login_controller.dart';
+import '../../../core/constant/app_images.dart';
+import '../../controller/shards/keyboard_controller.dart';
 import '../../core/extensions/widget_extension.dart';
+import '../../widgets/custom_elevated_button.dart';
+import '../../widgets/custom_text_field.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    RegisterController controller = Get.put(RegisterController());
+    LoginController controller = Get.put(LoginController());
+    KeyboardController keyboardController = Get.put(KeyboardController());
+
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
         children: [
-          const LinearProgressIndicator(
-            color: AppColors.mainColor,
-            value: 0.4,
-            minHeight: 6,
-          ).paddingSymmetric(vertical: 16, horizontal: context.width / 14),
-          const Divider(
-            color: Colors.black,
-            thickness: 1,
+          Positioned(
+            top: -80,
+            right: 0,
+            left: 0,
+            child: SizedBox(
+              width: double.infinity,
+              child: Image.asset(
+                AppImages.mask,
+                fit: BoxFit.fill,
+              ),
+            ),
           ),
           ListView(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                'Let\'s Start',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold),
-              ).paddingSymmetricWidth16(),
-              SizedBox(height: context.height / 40),
+              SizedBox(height: context.height / 20),
+              SvgPicture.asset(
+                AppImages.etisaq,
+                height: 120,
+              ),
+              SizedBox(height: context.height / 20),
               CustomTextField(
-                title: 'First Name*',
-                controller: controller.firstName,
-                validator: (value) => null,
-              ).paddingSymmetricWidth16(),
+                hint: 'الاسم الأول',
+                controller: controller.email,
+                textInputType: TextInputType.emailAddress,
+              ).paddingSymmetricWidth14(),
+              SizedBox(height: context.height / 80),
               CustomTextField(
-                title: 'Last Name*',
-                controller: controller.lastName,
-                validator: (value) => null,
-              ).paddingSymmetricWidth16(),
+                hint: 'الاسم الأخير',
+                controller: controller.email,
+                textInputType: TextInputType.emailAddress,
+              ).paddingSymmetricWidth14(),
+              SizedBox(height: context.height / 80),
               CustomTextField(
-                title: 'Date Of Birth*',
-                hint: 'MM/DD/YYYY',
-                controller: controller.dateOfBirth,
-                textInputType: TextInputType.none,
-                isDatePicker: true,
-              ).paddingSymmetricWidth16().paddingOnly(bottom: 8),
-              const CustomDropDownList(
-                title: 'Country*',
-                tag: 'Country',
-              ).paddingSymmetricWidth16().paddingOnly(bottom: 8),
-              const CustomDropDownList(
-                title: 'Gender*',
-                tag: 'Gender',
-                enableSearch: false,
-              ).paddingSymmetricWidth16().paddingOnly(bottom: 8),
-              const CustomDropDownList(
-                title: 'Language*',
-                tag: 'Language',
-                enableSearch: false,
-              ).paddingSymmetricWidth16().paddingOnly(bottom: 8),
-              SizedBox(height: context.height / 40),
+                hint: 'اسم المستخدم باللغة الانكليزية',
+                controller: controller.email,
+                textInputType: TextInputType.emailAddress,
+              ).paddingSymmetricWidth14(),
+              SizedBox(height: context.height / 80),
+              CustomTextField(
+                hint: 'البريد الالكتروني',
+                controller: controller.email,
+                textInputType: TextInputType.emailAddress,
+              ).paddingSymmetricWidth14(),
+              SizedBox(height: context.height / 80),
+              CustomTextField(
+                hint: 'كلمة المرور',
+                controller: controller.password,
+                textInputType: TextInputType.visiblePassword,
+                isSecret: true,
+              ).paddingSymmetricWidth14(),
+              SizedBox(height: context.height / 80),
+              CustomTextField(
+                hint: 'تأكيد كلمة المرور',
+                controller: controller.password,
+                textInputType: TextInputType.visiblePassword,
+                isSecret: true,
+              ).paddingSymmetricWidth14(),
+              SizedBox(height: context.height / 32),
               CustomElevatedButton(
-                title: 'Continue',
+                title: 'تسجيل الدخول',
                 onPressed: () {},
-              ).paddingSymmetricWidth16(),
-              SizedBox(height: context.height / 40),
+              ).paddingSymmetricWidth14(),
+              SizedBox(height: context.height / 32),
+              if (!keyboardController.isOpen.value)
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Divider(
+                      color: Color(0xFFE6E6E6),
+                      height: 1,
+                      endIndent: 10,
+                    ).expanded(flex: 1),
+                    Text(
+                      "or continue with",
+                      style: AppTextStyles.regular14(
+                          color: const Color(0xFF828282)),
+                    ),
+                    const Divider(
+                      color: Color(0xFFE6E6E6),
+                      height: 1,
+                      indent: 10,
+                    ).expanded(flex: 1),
+                  ],
+                ).paddingSymmetricWidth14(),
+              if (!keyboardController.isOpen.value)
+                SizedBox(height: context.height / 32),
+              if (!keyboardController.isOpen.value)
+                CustomElevatedButton(
+                  title: 'Google',
+                  iconPath: AppImages.google,
+                  onPressed: () {},
+                  backgroundColor: const Color(0xFFEEEEEE),
+                  foregroundColor: Colors.black,
+                ).paddingSymmetricWidth14(),
             ],
-          ).expanded(flex: 1),
-          const Divider(
-            color: Colors.black,
-            thickness: .5,
-          ).paddingSymmetricWidth24(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Already have an account? ',
-                style: AppTextStyles.medium18(),
-              ),
-              CustomTextButton(
-                title: 'Sign In',
-                onPressed: () {
-                  Get.offNamed(AppRoutes.loginScreen);
-                },
-              ),
-            ],
-          ),
-          SizedBox(height: context.height / 80),
+          ).align(alignment: const Alignment(0, -.1)),
         ],
       ),
-    ).makeSafeArea();
+    );
   }
 }

@@ -25,7 +25,7 @@ class TestScreen extends StatelessWidget {
         children: [
           const SizedBox(height: 8),
           CustomTextField(
-            title: 'Username',
+            hint: 'Username',
             controller: TextEditingController(),
           ),
           const SizedBox(height: 8),
@@ -54,7 +54,6 @@ class TestScreen extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           CustomTextField(
-            title: 'Date Picker',
             hint: "MM/DD/YYYY",
             isDatePicker: true,
             textInputType: TextInputType.none,

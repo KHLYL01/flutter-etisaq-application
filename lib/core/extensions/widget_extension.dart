@@ -22,7 +22,7 @@ extension CustomWidget on Widget {
     );
   }
 
-  Widget paddingSymmetricWidth16() {
+  Widget paddingSymmetricWidth14() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: Get.context!.width / 14),
       child: this,

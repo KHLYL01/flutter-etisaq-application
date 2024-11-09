@@ -16,12 +16,19 @@ class SplashScreen extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          SvgPicture.asset(AppImages.logo)
-              .align(alignment: const Alignment(0, -0.4)),
-          const Text('please wait...')
-              .align(alignment: const Alignment(0, 0.2)),
+          SizedBox(
+            width: double.infinity,
+            child: Image.asset(
+              AppImages.mask,
+              fit: BoxFit.fill,
+            ),
+          ).align(alignment: Alignment.topCenter),
+          SvgPicture.asset(
+            AppImages.etisaq,
+            width: context.width / 2,
+          ).align(alignment: Alignment.center),
         ],
       ),
-    ).makeSafeArea();
+    );
   }
 }

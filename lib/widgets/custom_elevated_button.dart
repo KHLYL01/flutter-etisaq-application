@@ -1,3 +1,6 @@
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
 import '../../core/constant/app_texts.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +11,11 @@ class CustomElevatedButton extends StatelessWidget {
     Key? key,
     required this.title,
     required this.onPressed,
-    this.height = 50,
+    this.height = 40,
     this.backgroundColor = AppColors.mainColor,
     this.foregroundColor = Colors.white,
-    this.radius = 6,
+    this.radius = 8,
+    this.iconPath,
   }) : super(key: key);
 
   final String title;
@@ -20,6 +24,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Color foregroundColor;
   final double height;
   final double radius;
+  final String? iconPath;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -29,12 +34,22 @@ class CustomElevatedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: backgroundColor,
             foregroundColor: foregroundColor,
+            elevation: 0.0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(radius)))),
         onPressed: onPressed,
-        child: Text(
-          title,
-          style: AppTextStyles.bold18(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: AppTextStyles.medium16(),
+            ).paddingOnly(top: 4),
+            if (iconPath != null)
+              Container(
+                  child: SvgPicture.asset(iconPath!).paddingOnly(right: 8)),
+          ],
         ),
       ),
     );
