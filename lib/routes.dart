@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'core/constant/app_routes.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/register_screen.dart';
+import 'screens/category_screen.dart';
 import 'screens/splash_screen.dart';
+import 'screens/subcategory_screen.dart';
 
 List<GetPage<dynamic>> routes = [
   GetPage(
@@ -24,5 +26,13 @@ List<GetPage<dynamic>> routes = [
   GetPage(
     name: AppRoutes.homeScreen,
     page: () => const HomeScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.categoryScreen,
+    page: () => const CategoryScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.subcategoryScreen,
+    page: () => const SubcategoryScreen(),
   ),
 ];

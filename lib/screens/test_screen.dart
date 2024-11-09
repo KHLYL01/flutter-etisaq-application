@@ -59,7 +59,7 @@ class TestScreen extends StatelessWidget {
             textInputType: TextInputType.none,
             controller: TextEditingController(),
           ),
-          SizedBox(height: 100),
+          const SizedBox(height: 100),
         ],
       ).paddingSymmetricWidth24(),
     ).makeSafeArea();

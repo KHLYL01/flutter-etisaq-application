@@ -73,6 +73,11 @@ class AppTextStyles {
         style: FontStyle.regular, size: 20, color: color, height: height);
   }
 
+  static regular24({Color? color, double? height}) {
+    return Font.apply(
+        style: FontStyle.regular, size: 24, color: color, height: height);
+  }
+
   static medium12({Color? color}) {
     return Font.apply(style: FontStyle.medium, size: 12, color: color);
   }
