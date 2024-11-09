@@ -54,7 +54,9 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: context.height / 32),
               CustomElevatedButton(
                 title: 'تسجيل الدخول',
-                onPressed: () {},
+                onPressed: () {
+                  Get.offNamed(AppRoutes.homeScreen);
+                },
               ).paddingSymmetricWidth14(),
               if (!keyboardController.isOpen.value)
                 SizedBox(height: context.height / 32),

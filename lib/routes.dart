@@ -1,3 +1,4 @@
+import 'package:etisaq/screens/home_screen.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/app_routes.dart';
@@ -19,5 +20,9 @@ List<GetPage<dynamic>> routes = [
   GetPage(
     name: AppRoutes.registerScreen,
     page: () => const RegisterScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.homeScreen,
+    page: () => const HomeScreen(),
   ),
 ];

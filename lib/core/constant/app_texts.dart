@@ -5,6 +5,7 @@ class Font {
     required FontStyle style,
     required double size,
     Color? color,
+    double? height,
     TextDecoration? decoration,
   }) {
     return TextStyle(
@@ -13,6 +14,7 @@ class Font {
       fontSize: size,
       fontFamily: 'Tajawal',
       decoration: decoration,
+      height: height,
     );
   }
 }
@@ -47,8 +49,28 @@ extension FontStyles on FontStyle {
 }
 
 class AppTextStyles {
+  static regular12({Color? color, double? height}) {
+    return Font.apply(
+        style: FontStyle.regular, size: 12, color: color, height: height);
+  }
+
   static regular14({Color? color}) {
     return Font.apply(style: FontStyle.regular, size: 14, color: color);
+  }
+
+  static regular16({Color? color, double? height}) {
+    return Font.apply(
+        style: FontStyle.regular, size: 16, color: color, height: height);
+  }
+
+  static regular18({Color? color, double? height}) {
+    return Font.apply(
+        style: FontStyle.regular, size: 18, color: color, height: height);
+  }
+
+  static regular20({Color? color, double? height}) {
+    return Font.apply(
+        style: FontStyle.regular, size: 20, color: color, height: height);
   }
 
   static medium12({Color? color}) {
@@ -81,6 +103,10 @@ class AppTextStyles {
 
   static bold28({Color? color}) {
     return Font.apply(style: FontStyle.bold, size: 28, color: color);
+  }
+
+  static bold24({Color? color}) {
+    return Font.apply(style: FontStyle.bold, size: 24, color: color);
   }
 
   static bold18({Color? color}) {
